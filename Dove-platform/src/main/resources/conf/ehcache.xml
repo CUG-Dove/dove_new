@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd">
+	<diskStore path="D:\GZ\platformCache" />
+	<defaultCache eternal="false" maxElementsInMemory="1000"
+		overflowToDisk="false" />
+		
+	<cache name="shiro-activeSessionCache"
+           maxElementsInMemory="10000"
+           eternal="true"
+           overflowToDisk="true"
+           diskPersistent="true"
+           diskExpiryThreadIntervalSeconds="600"/>
+    <cache name="shiro.authorizationCache"
+           maxElementsInMemory="10000"
+           eternal="true"
+           overflowToDisk="true"/>
+	<cache name="commonCache" timeToLiveSeconds="1800"></cache>
+	<cache name="shortTermCache" timeToLiveSeconds="120"></cache>
+</ehcache>

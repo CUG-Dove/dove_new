@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sanxia.dove.platform.mapper.LogMapper" >
+    <select id="findLogs" resultType="Map">
+        select
+        tl.id,
+        tl.operate_model as operateModel,
+        tl.message as message,
+        su.username as username,
+        su.full_name as fullName,
+        tl.operate_type as operateType,
+        date_format(tl.operate_date,'%Y-%m-%d %H:%i:%s') as operateDate
+        from tools_log tl
+        left join system_user su on tl.admin_id = su.id and tl.operate_type='0'
+        where 1=1
+        <if test="start != null and start != ''">
+            and tl.operate_date &gt;= str_to_date(#{start},'%Y-%m-%d')
+        </if>
+        <if test="end != null and end != ''">
+            and tl.operate_date &lt;= date_add(str_to_date(#{end},'%Y-%m-%d'), INTERVAL 1 day)
+        </if>
+        <if test="username != null and username != ''">
+            and su.username like CONCAT('%',#{username},'%')
+        </if>
+        <if test="optType != null and optType != ''">
+            and tl.operate_model = #{optType}
+        </if>
+        order by tl.operate_date desc
+    </select>
+
+    <insert id="insertLog">
+        insert into tools_log (admin_id,member_id,message,operate_model,operate_date) values (#{0},#{1,jdbcType=BIGINT},#{2},#{3},#{4})
+    </insert>
+</mapper>

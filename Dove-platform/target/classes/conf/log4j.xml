@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//APACHE//DTD LOG4J 1.2//EN" 
+    "http://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+	<!-- 控制台的日志记录 -->
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%-5p: %c - %m%n" />
+		</layout>
+	</appender>
+	<!-- 文件的日志记录 -->
+	<appender name="file" class="org.apache.log4j.DailyRollingFileAppender">
+		 <param name="File" value="${dove-platform.root}/logs/daylyLog.log" />
+		<param name="DatePattern" value="'.'yyyy-MM-dd" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} [%-5p]: %c - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- Root Logger -->
+	<root>
+		<priority value="info" />
+		<!-- 上线时，记录到文件 -->
+		<!--<appender-ref ref="file" /> -->
+		<!-- 开发时打印到控制台 -->
+		 <appender-ref ref="console" />
+	</root>
+
+</log4j:configuration>

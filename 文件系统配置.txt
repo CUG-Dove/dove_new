@@ -1,0 +1,19 @@
+将下面一段配置 复制到tomcat/conf/server.xml中
+<Service name="newtest">  
+	<!--分配8089端口 -->  
+	  <Connector port="8089"   
+	protocol="HTTP/1.1"  
+	connectionTimeout="20000"   
+	URIEncoding="GBK"  
+	redirectPort="8443" />  
+				   
+	   <Engine name="newtest" defaultHost="localhost">  
+	<!--name为项目访问地址 此配置的访问为http://localhost:8089 appBase配置tomcat下wabapps下的路径-->  
+		<Host name="localhost" appBase="D:\Java\apache-tomcat-7.0.54\webapps"  
+	unpackWARs="true" autoDeploy="true"   
+	xmlValidation="false" xmlNamespaceAware="false">  
+	<!--资源地址-->  
+		  <Context path="" docBase="E://Dove" debug="0" reloadable="false"/>  
+		</Host>  
+	  </Engine>  
+	</Service>  

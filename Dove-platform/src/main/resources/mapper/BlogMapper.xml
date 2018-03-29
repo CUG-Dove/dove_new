@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sanxia.dove.platform.mapper.BlogMapper">
+    <insert id="insertBlog" parameterType="Blog">
+        insert into blog_info(ID,WRITER_ID,TITLE,CONTENT,CREATE_TIME,LAST_MODI_TIME,DELETE_TIME,IS_DELETE,AGREES,DISAGREES,REVIEWS)
+        VALUES (#{id},#{writerId},#{title},#{content, typeHandler=org.apache.ibatis.type.BlobTypeHandler},
+        str_to_date(#{createTime},'%Y-%m-%d %H:%i:%s'),str_to_date(#{lastModiTime},'%Y-%m-%d %H:%i:%s'),str_to_date(#{deleteTime},'%Y-%m-%d %H:%i:%s'),
+        #{isDelete},#{agrees},#{disagrees},#{reviews})
+    </insert>
+    <select id="getUserBlogs" parameterType="long" resultType="List">
+        select * from blog_info where WRITER_ID=#{writerId}
+    </select>
+</mapper>

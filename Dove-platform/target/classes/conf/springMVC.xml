@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context-3.1.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<!-- 扫描controller -->
+	<context:component-scan base-package="com.sanxia.dove.platform.controller" />
+	<!-- 开启注解管理 -->
+	<mvc:annotation-driven>
+		<!-- 开启ResponseBody支持 -->
+		<mvc:message-converters>
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>text/html; charset=UTF-8</value>
+						<value>application/json;charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
+			<bean
+				class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+				<property name="supportedMediaTypes">
+					<list>
+						<value>text/html; charset=UTF-8</value>
+						<value>application/json;charset=UTF-8</value>
+					</list>
+				</property>
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
+
+	<!-- 定义静态文件所在路径 -->
+	<mvc:resources mapping="/resources/**" location="/resources/"
+		cache-period="31556926" />
+
+	<!-- 权限控制已改成shiro处理 -->
+	<!-- 拦截器，未登录的用户不能访问后台页面
+	<mvc:interceptors> -->
+		<!-- 使用bean定义一个Interceptor，直接定义在mvc:interceptors根下面的Interceptor将拦截所有的请求 
+		<mvc:interceptor>
+			<mvc:mapping path="/admin/**" />
+			<bean class="cn.bluemobi.platform.core.interceptor.LoginInterceptor" />
+		</mvc:interceptor>-->
+		<!--<mvc:interceptor>
+			<mvc:mapping path="/business/**" />
+			 定义在mvc:interceptor下面的表示是对特定的请求才进行拦截的 
+			<bean class="cn.bluemobi.banma.core.interceptor.BusinessInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>-->
+
+	<!-- 配置视图解析器，将ModelAndView及字符串解析为具体的页面 -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/WEB-INF/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+	<!-- 文件上传解析器 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="314572800" />
+		<property name="defaultEncoding" value="UTF-8"></property>
+		<property name="maxInMemorySize" value="4096" />
+	</bean>
+</beans>

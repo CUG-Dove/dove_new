@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sanxia.dove.platform.mapper.UserMapper" >
+
+  <!--resultMap type="User" id="userResultMap">
+    <id property="id" column="ID"/>
+    <result property="username" column="USERNAME"/>
+    <result property="password" column="PASSWORD"/>
+    <result property="isAdmin" column="IS_ADMIN"/>
+    <result property="roleId" column="ROLE_ID"/>
+    <result property="profilePicture" column="PROFILE_PICTURE" typeHandler="org.apache.ibatis.type.BlobTypeHandler"/>
+    <result property="fullName" column="FULL_NAME"/>
+    <result property="phone" column="PHONE" jdbcType="VARCHAR"/>
+    <result property="email" column="EMAIL" jdbcType="VARCHAR"/>
+    <result property="company" column="COMPANY" jdbcType="VARCHAR" />
+    <result property="url" column="URL" jdbcType="VARCHAR" />
+    <result property="remark" column="REMARK" jdbcType="VARCHAR" />
+    <result property="location" column="LOCATION" jdbcType="VARCHAR" />
+    <result property="createTm" column="CREATE_TM"  />
+    <result property="modifyTm" column="MODIFY_TM" />
+  </resultMap-->
+
+    <select id="loginByAccountAndPsd" resultType="User">
+      SELECT su.`ID` AS id,
+      su.`USERNAME` AS username,
+      su.`PASSWORD` AS password,
+      su.`IS_ADMIN` AS isAdmin,
+      su.`ROLE_ID` AS roleId,
+      su.`PROFILE_PICTURE` AS profilePicture,
+      su.`FULL_NAME` AS  fullName,
+      su.`PHONE` AS phone,
+      su.`EMAIL` AS email,
+      su.`COMPANY` AS company,
+      su.`URL` AS url,
+      su.`REMARK` AS remark,
+      su.`LOCATION` AS location,
+      su.`CREATE_TM` AS createTm,
+      su.`MODIFY_TM` AS modifyTm
+      FROM SYSTEM_USER as su
+      WHERE username = #{0} and password = #{1}
+</select>
+
+  <select id="canInsertUserByUsername" resultType="int">
+    select count(1) from system_user where username = #{0}
+  </select>
+  <select id="canInsertUserByEmail" resultType="int">
+    select count(1) from system_user where email = #{0}
+  </select>
+
+
+  <insert id="insertUser" useGeneratedKeys="true" keyProperty="id" parameterType="User">
+    insert into system_user (USERNAME,PASSWORD,IS_ADMIN,ROLE_ID,PROFILE_PICTURE,FULL_NAME,PHONE,EMAIL,REMARK,COMPANY,URL,LOCATION,CREATE_TM,MODIFY_TM) values
+    (#{username},#{password},#{isAdmin},#{roleId},#{profilePicture, typeHandler=org.apache.ibatis.type.BlobTypeHandler},#{fullName},#{phone,jdbcType=VARCHAR},#{email,jdbcType=VARCHAR},#{remark,jdbcType=VARCHAR},#{company,jdbcType=VARCHAR},#{url,jdbcType=VARCHAR},#{location,jdbcType=VARCHAR},str_to_date(#{createTm},'%Y-%m-%d %H:%i:%s'),str_to_date(#{modifyTm},'%Y-%m-%d %H:%i:%s'))
+  </insert>
+
+
+  <update id="updateUser" parameterType="User">
+    update system_user set
+    USERNAME = #{username},
+    IS_ADMIN = #{isAdmin},
+    ROLE_ID = #{roleId},
+    PROFILE_PICTURE = #{profilePicture, typeHandler=org.apache.ibatis.type.BlobTypeHandler},
+    FULL_NAME = #{fullName},
+    PHONE = #{phone,jdbcType=VARCHAR},
+    EMAIL = #{email,jdbcType=VARCHAR},
+    REMARK = #{remark,jdbcType=VARCHAR},
+    COMPANY = #{company,jdbcType=VARCHAR},
+    URL = #{url,jdbcType=VARCHAR},
+    LOCATION = #{location,jdbcType=VARCHAR},
+    MODIFY_TM = str_to_date(#{modifyTm},'%Y-%m-%d %H:%i:%s')
+    where ID = #{id}
+  </update>
+
+  <update id="updateUserProfile" parameterType="User">
+    update system_user set
+    PROFILE_PICTURE = #{profilePicture},
+    FULL_NAME = #{fullName,jdbcType=VARCHAR},
+    REMARK = #{remark,jdbcType=VARCHAR},
+    COMPANY = #{company,jdbcType=VARCHAR},
+    URL = #{url,jdbcType=VARCHAR},
+    LOCATION = #{location,jdbcType=VARCHAR},
+    MODIFY_TM = str_to_date(#{modifyTm},'%Y-%m-%d %H:%i:%s')
+    where id = #{id}
+  </update>
+
+  <update id="deleteUserById">
+    delete from system_user where id = #{0}
+  </update>
+
+  <update id="updatePwd">
+    update system_user set password = #{0} where id = #{1} and password = #{2}
+  </update>
+
+  <select id="findById" resultType="User">
+    select
+    username,
+    full_name as fullName,
+    role_id as roleId
+    from system_user where id = #{0}
+  </select>
+
+</mapper>
