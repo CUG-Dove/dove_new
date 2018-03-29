@@ -32,7 +32,7 @@
                     <div class="Subhead mt-0 mb-0" >
                         <h2 class="Subhead-heading" >我的资料</h2>
                     </div>
-                    <form accept-charset="UTF-8"  class="columns js-uploadable-container js-upload-avatar-image is-default" id="user_profile" method="post">
+                    <form accept-charset="UTF-8"  class="columns js-uploadable-container js-upload-avatar-image is-default" id="user_profile_form" method="post">
                         <!--div style="margin:0;padding: 0;display: inline;">
                             <input type="text" name="" id="">
                         </div-->
@@ -58,18 +58,6 @@
 
                         </dl>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-                        // model弹出框
-
->>>>>>> 5da5e5da0b0619b001219e6db55ac7e58fcc7c77
-=======
-
-                        // model弹出框
-
->>>>>>> 5da5e5da0b0619b001219e6db55ac7e58fcc7c77
                         <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -151,10 +139,8 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
 
 </div>
-=======
     <!--div class="" style="width: 290px;float: right !important;border: 1px #e1e4e8 solid;padding: 20px;font-size: small;margin-top: -520px;margin-right: 10px;">
         <div class="Subhead mt-0 mb-0" >
             <h2 class="Subhead-heading" >xxx</h2>
@@ -163,183 +149,107 @@
 
 </div>
 
-<<<<<<< HEAD
->>>>>>> 5da5e5da0b0619b001219e6db55ac7e58fcc7c77
-=======
->>>>>>> 5da5e5da0b0619b001219e6db55ac7e58fcc7c77
 </div>
 </div>
 <%@ include file="/WEB-INF/common/footer.jsp"%>
 <%@ include file="/WEB-INF/common/script.jsp"%>
-<script>
-    window.addEventListener('DOMContentLoaded', function () {
-        var avatar = document.getElementById('avatar');
-        var image = document.getElementById('image');
-        var input = document.getElementById('upload-profile-picture');
-        var $alert = $('.alert');
-        var $modal = $('#modal');
-        var cropper;
-        $alert.hide();
-        input.addEventListener('change', function (e) {
-            var files = e.target.files;
-            var done = function (url) {
-                input.value = '';
-                image.src = url;
-                $modal.modal('show');
-            };
-            var reader;
-            var file;
-            var url;
-
-            if (files && files.length > 0) {
-                file = files[0];
-
-                if (URL) {
-                    done(URL.createObjectURL(file));
-                } else if (FileReader) {
-                    reader = new FileReader();
-                    reader.onload = function (e) {
-                        done(reader.result);
-                    };
-                    reader.readAsDataURL(file);
-                }
-            }
-        });
-        $modal.on('shown.bs.modal', function () {
-            cropper = new Cropper(image, {
-                aspectRatio: 1,
-                viewMode: 3,
-            });
-        }).on('hidden.bs.modal', function () {
-            cropper.destroy();
-            cropper = null;
-        });
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-        document.getElementById('crop').addEventListener('click', function () {
-            var initialAvatarURL;
-            var canvas;
-=======
-=======
->>>>>>> 5da5e5da0b0619b001219e6db55ac7e58fcc7c77
-<%@ include file="/WEB-INF/common/script.jsp"%>
     <script>
-        window.addEventListener('DOMContentLoaded', function () {
-            var avatar = document.getElementById('avatar');
-            var image = document.getElementById('image');
-            var input = document.getElementById('upload-profile-picture');
-            var $alert = $('.alert');
-            var $modal = $('#modal');
-            var cropper;
-            input.addEventListener('change', function (e) {
-                var files = e.target.files;
-                var done = function (url) {
-                    input.value = '';
-                    image.src = url;
-                    $alert.hide();
-                    $modal.modal('show');
-                };
-                var reader;
-                var file;
-                var url;
->>>>>>> 5da5e5da0b0619b001219e6db55ac7e58fcc7c77
+            window.addEventListener('DOMContentLoaded', function () {
+                var avatar = document.getElementById('avatar');
+                var image = document.getElementById('image');
+                var input = document.getElementById('upload-profile-picture');
+                var $alert = $('.alert');
+                var $modal = $('#modal');
+                var cropper;
+                $alert.hide();
+                input.addEventListener('change', function (e) {
+                    var files = e.target.files;
+                    var done = function (url) {
+                        input.value = '';
+                        image.src = url;
+                        $modal.modal('show');
+                    };
+                    var reader;
+                    var file;
+                    var url;
 
-            $modal.modal('hide');
+                    if (files && files.length > 0) {
+                        file = files[0];
 
-            if (cropper) {
-                canvas = cropper.getCroppedCanvas({
-                    width: 160,
-                    height: 160,
+                        if (URL) {
+                            done(URL.createObjectURL(file));
+                        } else if (FileReader) {
+                            reader = new FileReader();
+                            reader.onload = function (e) {
+                                done(reader.result);
+                            };
+                            reader.readAsDataURL(file);
+                        }
+                    }
                 });
-<<<<<<< HEAD
-=======
-            }).on('hidden.bs.modal', function () {
-                cropper.destroy();
-                cropper = null;
+                $modal.on('shown.bs.modal', function () {
+                    cropper = new Cropper(image, {
+                        aspectRatio: 1,
+                        viewMode: 3,
+                    });
+                }).on('hidden.bs.modal', function () {
+                    cropper.destroy();
+                    cropper = null;
+                });
+
+                document.getElementById('crop').addEventListener('click', function () {
+                    var initialAvatarURL;
+                    var canvas;
+
+                    $modal.modal('hide');
+
+                    if (cropper) {
+                        canvas = cropper.getCroppedCanvas({
+                            width: 160,
+                            height: 160,
+                        });
+
+                        initialAvatarURL = avatar.src;
+                        avatar.src = canvas.toDataURL();
+                        $alert.removeClass('alert-success alert-warning');
+
+                        canvas.toBlob(function (blob) {
+                            var formData = new FormData();
+                            formData.append('avatar', blob);
+
+                            $.ajax({
+                                url:'${ctx}settings/profile/updateUserPicture',
+                                method: 'POST',
+                                data: formData,
+                                processData: false,
+                                contentType: false,
+                                success: function (result) {
+                                    document.getElementById('avatar-top').src = '${ctx}settings/showUserPicture?time='+ new Date().getTime();
+                                    document.getElementById('avatar-left').src = '${ctx}settings/showUserPicture?time='+ new Date().getTime();
+                                    $alert.show().addClass('alert alert-success');
+                                    $('#alert_text').text('Congratulation！修改成功.');
+                                },
+                                error: function (result) {
+                                    avatar.src = initialAvatarURL;
+                                    $alert.show().addClass('alert alert-success');
+                                    $('#alert_text').text('Congratulation！修改失败.');
+                                },
+                                complete: function () {
+
+                                },
+                            });
+
+                        });
+                    }
+                });
             });
-
-            document.getElementById('crop').addEventListener('click', function () {
-                var initialAvatarURL;
-                var canvas;
-
-
-                $modal.modal('hide');
-
-                if (cropper) {
-                    canvas = cropper.getCroppedCanvas({
-                        width: 160,
-                        height: 160,
-                    });
-
-                    initialAvatarURL = avatar.src;
-                    avatar.src = canvas.toDataURL();
-                    $alert.removeClass('alert-success alert-warning');
->>>>>>> 5da5e5da0b0619b001219e6db55ac7e58fcc7c77
-
-                initialAvatarURL = avatar.src;
-                avatar.src = canvas.toDataURL();
-                $alert.removeClass('alert-success alert-warning');
-
-<<<<<<< HEAD
-                canvas.toBlob(function (blob) {
-                    var formData = new FormData();
-                    formData.append('avatar', blob);
-=======
-                        $.ajax({
-                            url:'${ctx}settings/profile/updateUserPicture',
-                            method: 'POST',
-                            data: formData,
-                            processData: false,
-                            contentType: false,
-                            success: function (result) {
-
-                                document.getElementById('avatar-top').src = '${ctx}settings/showUserPicture?time='+ new Date().getTime();
-
-                                document.getElementById('avatar-left').src = '${ctx}settings/showUserPicture?time='+ new Date().getTime();
-                                        $alert.show().addClass('alert-success').text('Upload success');
-                            },
-                            error: function (result) {
-                                avatar.src = initialAvatarURL;
-                                $alert.show().addClass('alert-warning').text('Upload error');
-                            },
-                            complete: function () {
->>>>>>> 5da5e5da0b0619b001219e6db55ac7e58fcc7c77
-
-                    $.ajax({
-                        url:'${ctx}settings/profile/updateUserPicture',
-                        method: 'POST',
-                        data: formData,
-                        processData: false,
-                        contentType: false,
-                        success: function (result) {
-                            document.getElementById('avatar-top').src = '${ctx}settings/showUserPicture?time='+ new Date().getTime();
-                            document.getElementById('avatar-left').src = '${ctx}settings/showUserPicture?time='+ new Date().getTime();
-                            $alert.show().addClass('alert alert-success');
-                            $('#alert_text').text('Congratulation！修改成功.');
-                        },
-                        error: function (result) {
-                            avatar.src = initialAvatarURL;
-                            $alert.show().addClass('alert-warning').text('头像上传失败.');
-                        },
-                        complete: function () {
-
-                        },
-                    });
-
-                });
-            }
-        });
-<<<<<<< HEAD
-<<<<<<< HEAD
-    });
 
     function updateProfile() {
         var $alert = $('.alert');
         $.ajax({
             url:'${ctx}settings/profile/updateProfile?time=' + new Date().getTime(),
             type:'POST',
-            data:$('#user_profile').serialize(),
+            data:$('#user_profile_form').serialize(),
             dataType:'json',
             success:function (result) {
                 $("input[type='password']").val('');
@@ -354,13 +264,7 @@
     }
 
 </script>
-=======
 
-=======
-
->>>>>>> 5da5e5da0b0619b001219e6db55ac7e58fcc7c77
-    </script>
->>>>>>> 5da5e5da0b0619b001219e6db55ac7e58fcc7c77
 </body>
 
 </html>

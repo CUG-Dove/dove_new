@@ -21,13 +21,6 @@
                         </dd>
                     </div>
                     <h3 class="menu-heading" >Personnal setting</h3>
-<<<<<<< HEAD
-<<<<<<< HEAD
-
-=======
->>>>>>> 5da5e5da0b0619b001219e6db55ac7e58fcc7c77
-=======
->>>>>>> 5da5e5da0b0619b001219e6db55ac7e58fcc7c77
                     <a href="${ctx}settings/account" class="menu-item" style="text-decoration:none;" id="menu-account">Account</a>
                     <a href="${ctx}settings/profile" class="menu-item" style="text-decoration:none;" id="menu-profile">Profile</a>
                     <a href="${ctx}settings/email" class="menu-item" style="text-decoration:none;" id="menu-email">Email</a>
