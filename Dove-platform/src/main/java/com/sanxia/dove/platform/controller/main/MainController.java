@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/main")
 public class MainController extends PlatformBaseController {
 
-    @RequestMapping("/toMainPage")
+    @RequestMapping("")
     public String toMainPage(){
         return "main/main";
     }

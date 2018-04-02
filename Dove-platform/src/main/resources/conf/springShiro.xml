@@ -49,6 +49,10 @@
 -->
 
 
+	<bean id="logoutFilter" class="org.apache.shiro.web.filter.authc.LogoutFilter">
+		<property name="redirectUrl" value="/toLoginPage" />
+	</bean>
+
 	<bean id="sessionIdCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
 		<property name="httpOnly" value="true" />
 		<property name="name" value="platformShiroId" />
@@ -71,6 +75,11 @@
 			perms：例子/admins/user/**=perms[user:add:*],参数可以写多个，多个时必须加上引号，并且参数之间用逗号分割，例如/admins/user/**=perms["user:add:*,user:modify:*"]，当有多个参数时必须每个参数都通过才通过，想当于isPermitedAll()方法。
 		user:例如/admins/user/**=user没有参数表示必须存在用户,  身份认证通过或通过记住我认证通过的可以访问，当登入操作时不做检查
 		-->
+		<property name="filters">
+			<map>
+				<entry key="logout" value-ref="logoutFilter" />
+			</map>
+		</property>
 		<property name="filterChainDefinitions">
 			<value>
 				/logout=logout

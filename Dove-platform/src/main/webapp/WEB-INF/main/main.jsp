@@ -87,31 +87,31 @@
                     <div class="left-nav" style="position: absolute; bottom: auto;">
                         <ul>
                             <div>
-                                <li><a href="${ctx}main/toMainPage" class="main-menu-item" id="main-menu-item-recommend">推荐</a></li>
+                                <li><a href="${ctx}main" class="main-menu-item" id="main-menu-item-recommend">推荐</a></li>
                             </div>
                             <div>
-                                <li><a href="" class="main-menu-item" id="main-menu-item-hot">最热开源项目</a></li>
+                                <li><a href="#" class="main-menu-item" id="main-menu-item-hot">最热开源项目</a></li>
                             </div>
                             <div>
-                                <li><a href="" class="main-menu-item" id="main-menu-item-focus">关注</a></li>
+                                <li><a href="#" class="main-menu-item" id="main-menu-item-focus">关注</a></li>
                             </div>
                             <div>
-                                <li><a href="" class="main-menu-item" id="main-menu-item-information">资讯</a></li>
+                                <li><a href="#" class="main-menu-item" id="main-menu-item-information">资讯</a></li>
                             </div>
                             <div>
-                                <li><a href="" class="main-menu-item" id="main-menu-item-AI">人工智能</a></li>
+                                <li><a href="#" class="main-menu-item" id="main-menu-item-AI">人工智能</a></li>
                             </div>
                             <div>
-                                <li><a href="" class="main-menu-item" id="main-menu-item-bigData">云计算/大数据</a></li>
+                                <li><a href="#" class="main-menu-item" id="main-menu-item-bigData">云计算/大数据</a></li>
                             </div>
                             <div>
-                                <li><a href="" class="main-menu-item" id="main-menu-item-blockchain">区块链</a></li>
+                                <li><a href="#" class="main-menu-item" id="main-menu-item-blockchain">区块链</a></li>
                             </div>
                             <div>
-                                <li><a href="" class="main-menu-item" id="main-menu-item-database">数据库</a></li>
+                                <li><a href="#" class="main-menu-item" id="main-menu-item-database">数据库</a></li>
                             </div>
                             <div>
-                                <li><a href="" class="main-menu-item" id="main-menu-item-mobileDev">移动开发</a></li>
+                                <li><a href="#" class="main-menu-item" id="main-menu-item-mobileDev">移动开发</a></li>
                             </div>
                         </ul>
                     </div>
@@ -362,7 +362,7 @@
     var url = window.location.href;
     var index = url.lastIndexOf("/") + 1;
     var thisUrl = url.substring(index, url.length);
-    if (thisUrl == 'toMainPage'){
+    if (thisUrl == 'main'){
         thisUrl = 'recommend';
     }
     var str = '#main-menu-item-' + thisUrl;

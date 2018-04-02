@@ -32,7 +32,7 @@
     </div>
 </div>
 <div class="" style="width:100%;height:50%;width: 340px;margin: 0 auto;padding-right: 16px !important;padding-left: 16px !important;">
-    <form id="loginForm" action="${ctx}login" method="post" >
+    <form id="loginForm">
         <div class="auth-form-header p-0">
             <h3>账户登陆</h3>
         </div>
@@ -81,17 +81,26 @@
 <%@ include file="/WEB-INF/common/script.jsp"%>
 <script>
     function tryLogin(){
-        if($("#username").val() == ""){
-            //document.getElementById("#alertDiv").style.display="block";
+        if($("#username").val() === ""){
             $('#alertDiv').show();
             return;
         }
         if($("#password").val() == ""){
-            //document.getElementById("#alertDiv").style.display="block";
             $('#alertDiv').show();
             return;
         }
-        $("#loginForm").submit();
+        $.ajax({
+            url:'${ctx}login',
+            method:'POST',
+            data:$('#loginForm').serialize(),
+            type:'json',
+            success: function () {
+                window.location.href = '${ctx}main'
+            },
+            error: function (result) {
+                console(result.toString());
+            }
+        });
     }
 </script>
 </body>

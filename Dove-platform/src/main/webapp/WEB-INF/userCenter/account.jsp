@@ -14,7 +14,7 @@
 </head>
 <body class="logged-out page-responsive min-width-0 f4">
 <%@ include file="/WEB-INF/common/top_logined.jsp"%>
-    <div class="alert" role="alert" id="alert" style="margin-bottom:0px">
+    <div class="alert" role="alert" id="alert" style="margin-bottom:0px;">
         <a href="#" class="close" data-dismiss="alert">
             &times;
         </a>

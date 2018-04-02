@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+
 <div class="position-relative" style="height: 72px;" role="navigation">
     <div id="js-pjax-loader-bar" class="pjax-loader-bar">
         <div class="progress"></div>
@@ -22,7 +23,7 @@
             <div class="HeaderMenu HeaderMenu--bright d-flex flex-justify-between flex-auto ">
                 <nav class="mt-0">
                     <ul class="d-flex list-style-none" style="margin-top:5px">
-                        <li class="ml-2"><a href="#" class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0">Brand</a></li>
+                        <li class="ml-2"><a href="${ctx}main" class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0">首页</a></li>
                         <li class="ml-4"><a href="#" class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0">Action</a></li>
                         <li class="ml-4"><a href="#" class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0">Fund</a></li>
                         <li class="ml-4"><a href="#" class="js-selected-navigation-item HeaderNavlink px-0 py-2 m-0">Link</a></li>
@@ -67,11 +68,15 @@
                                     <span class="dropdown-caret"></span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-sw">
-                                    <li><a class="dropdown-item" href="#">Action </a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here </a></li>
+                                    <li class="dropdown-header header-nav-current-user css-truncate">登陆用户：
+                                        <strong class="css-truncate-target">鸽子</strong>
+                                    </li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a class="dropdown-item" href="#">One more separated link</a></li>
+                                    <li><a class="dropdown-item"  href="${ctx}settings/profile">你的中心 </a></li>
+                                    <li><a class="dropdown-item" href="#">你的关注</a></li>
+                                    <li><a class="dropdown-item" href="${ctx}settings/account">个人设置中心 </a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a class="dropdown-item" href="${ctx}logout">注销</a></li>
                                 </ul>
                             </a>
                         </li>

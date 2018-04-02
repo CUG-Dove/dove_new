@@ -7,6 +7,7 @@
  */
 package com.sanxia.dove.platform.controller.home;
 
+import com.sanxia.dove.platform.controller.main.MainController;
 import com.sanxia.dove.platform.core.controller.PlatformBaseController;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -15,6 +16,7 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
@@ -39,17 +41,26 @@ public class LoginController extends PlatformBaseController {
         return "home/login";
     }
 
+    /*
+    * 登出
+    * */
+    @RequestMapping("/logout")
+    public String logout(){
+        Subject user = SecurityUtils.getSubject();
+        user.logout();
+        return "redirect:/toLoginPage"; }
+
     /**
      * 登陆
      */
-    @RequestMapping("/login")
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@RequestParam(value = "username", required = false) String username,
                         @RequestParam(value = "password", required = false) String password,
                         Model model) {
         Subject currenUser = SecurityUtils.getSubject();
         if (currenUser.isAuthenticated()) {
             // 已经登陆，跳转到首页
-            return "userCenter/profile";
+            return "redirect:/main";
         }
 
         // 登陆
@@ -64,6 +75,7 @@ public class LoginController extends PlatformBaseController {
             return "home/login";
         }
         // 登陆成功，跳转到首页
-        return "userCenter/profile";
+        return "redirect:/main";
     }
+
 }

@@ -70,6 +70,20 @@ public class UserSettingsControl extends PlatformBaseController {
         return "userCenter/profile";
     }
 
+    /**
+     *   userCenter email page
+     * @return email页面
+     */
+    @RequestMapping("/email")
+    public String toUserCenterEmailPage(){ return "userCenter/email"; }
+
+    /**
+     *  userCenter notifications page
+     * @return notifications 页面
+     */
+    @RequestMapping("/notifications")
+    public String toUserCenterNotificationsPage(){ return "userCenter/notifications"; }
+
     @RequestMapping("/account/updatePwd")
     @ResponseBody
     public MapDto UpdatePwd(@RequestParam(value = "old_password", required = false ) String old_password,
