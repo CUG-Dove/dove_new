@@ -1,5 +1,8 @@
 package com.sanxia.dove.platform.dto;
 
+import com.sanxia.dove.platform.entity.file.Blog;
+
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -11,6 +14,19 @@ public class FileStorer {
     String ResponseResult;
     String fileContent;
     String fileType;
+    List<Blog> blogs;
+
+    public List<Blog> getBlogs() {
+        return blogs;
+    }
+
+    public void setBlogs(List<Blog> blogs) {
+        this.blogs = blogs;
+    }
+
+    public FileStorer(List<Blog> blogs) {
+        this.blogs = blogs;
+    }
 
     public String getFileContent() {
         return fileContent;

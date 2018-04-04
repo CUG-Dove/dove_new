@@ -12,15 +12,10 @@
 <meta http-equiv="expires" content="0"/>
 <!-- 防止360浏览器使用ie内核 -->
 <meta name="renderer" content="webkit">
-
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- Bootstrap -->
-<link href="${ctx}resources/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
 <!-- Custom Theme Style -->
 <link href="${ctx}resources/css/custom.css" rel="stylesheet">
-
-<!-- JQuery-->
-<script src="${ctx}resources/vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<link href="${ctx}resources/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">

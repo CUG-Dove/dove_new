@@ -181,9 +181,9 @@ public class FileServiceImpl implements FileService {
     }
 
     @Override
-    public List<Blog> getUserBlogs(long writerId) {
+    public FileStorer getUserBlogs(long writerId) {
         List<Blog> blogs = blogMapper.getUserBlogs(writerId);
-        return blogs;
+        return new FileStorer(blogs);
     }
 
 }

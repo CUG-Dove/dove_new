@@ -2,11 +2,13 @@ package com.sanxia.dove.platform.controller.file;
 
 import com.sanxia.dove.platform.core.controller.PlatformBaseController;
 import com.sanxia.dove.platform.core.utils.PropertiesUtils;
+import com.sanxia.dove.platform.dto.FileStorer;
 import com.sanxia.dove.platform.dto.ImgJson;
 import com.sanxia.dove.platform.service.FileService;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,6 +35,13 @@ public class BlogController extends PlatformBaseController {
         return "file/WriteBlog";
     }
 
+    @RequestMapping("/myBlogs")
+    public String UserBlogs(Model model){
+        long WriterId=3;
+        FileStorer storer = fileService.getUserBlogs(WriterId);
+        model.addAttribute("storer",storer);
+        return "file/userBlogs";
+    }
 
     @RequestMapping(value = "/doUploadBlog",method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
     @ResponseBody

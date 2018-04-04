@@ -20,5 +20,5 @@ public interface FileService {
     public String fileType(String fileName);
     //插入Blog
     public boolean createBlog(long writerId,String title,String content);
-    public List<Blog> getUserBlogs(long writerId);
+    public FileStorer getUserBlogs(long writerId);
 }

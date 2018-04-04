@@ -1,13 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.sanxia.dove.platform.mapper.BlogMapper">
+    <resultMap id="blogResultMap" type="Blog">
+        <id property="id" column="ID"/>
+        <result property="writerId" column="WRITER_ID"/>
+        <result property="title" column="TITLE"/>
+        <result property="content" column="CONTENT"/>
+        <result property="createTime" column="CREATE_TIME"/>
+        <result property="lastModiTime" column="LAST_MODI_TIME"/>
+        <result property="deleteTime" column="DELETE_TIME"/>
+        <result property="isDelete" column="IS_DELETE"/>
+        <result property="agrees" column="AGREES"/>
+        <result property="disagrees" column="DISAGREES"/>
+        <result property="reviews" column="REVIEWS"/>
+        <result property="isDraft" column="IS_DRAFT"/>
+        <association property="user" resultMap="com.sanxia.dove.platform.mapper.UserMapper.userResultMap"/>
+    </resultMap>
+
     <insert id="insertBlog" parameterType="Blog">
-        insert into blog_info(ID,WRITER_ID,TITLE,CONTENT,CREATE_TIME,LAST_MODI_TIME,DELETE_TIME,IS_DELETE,AGREES,DISAGREES,REVIEWS)
+        insert into blog_info(ID,WRITER_ID,TITLE,CONTENT,CREATE_TIME,LAST_MODI_TIME,DELETE_TIME,IS_DELETE,AGREES,DISAGREES,REVIEWS,ISDRAFT)
         VALUES (#{id},#{writerId},#{title},#{content, typeHandler=org.apache.ibatis.type.BlobTypeHandler},
         str_to_date(#{createTime},'%Y-%m-%d %H:%i:%s'),str_to_date(#{lastModiTime},'%Y-%m-%d %H:%i:%s'),str_to_date(#{deleteTime},'%Y-%m-%d %H:%i:%s'),
-        #{isDelete},#{agrees},#{disagrees},#{reviews})
+        #{isDelete},#{agrees},#{disagrees},#{reviews}),#{isDraft}
     </insert>
-    <select id="getUserBlogs" parameterType="long" resultType="List">
-        select * from blog_info where WRITER_ID=#{writerId}
+    <select id="getUserBlogs" parameterType="long" resultType="Blog" resultMap="blogResultMap">
+        select * from blog_info as b left join
+        system_user as s
+        on b.WRITER_ID = s.ID  where b.WRITER_ID=#{0}
     </select>
 </mapper>
