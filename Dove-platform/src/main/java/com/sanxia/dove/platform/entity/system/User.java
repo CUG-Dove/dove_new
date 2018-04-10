@@ -8,6 +8,8 @@
 
 package com.sanxia.dove.platform.entity.system;
 
+import org.apache.ibatis.annotations.ResultMap;
+
 import java.io.File;
 import java.io.Serializable;
 import java.sql.Blob;
@@ -19,7 +21,6 @@ import java.sql.Blob;
  *  @version
  *  @see
  */
-
 public class User implements Serializable{
 
     private static final long serialVersionUID = 375767242322918066L;

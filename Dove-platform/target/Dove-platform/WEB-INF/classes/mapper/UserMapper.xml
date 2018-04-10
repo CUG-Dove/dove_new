@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.sanxia.dove.platform.mapper.UserMapper" >
 
-  <!--resultMap type="User" id="userResultMap">
+  <resultMap type="User" id="userResultMap">
     <id property="id" column="ID"/>
     <result property="username" column="USERNAME"/>
     <result property="password" column="PASSWORD"/>
@@ -18,7 +18,7 @@
     <result property="location" column="LOCATION" jdbcType="VARCHAR" />
     <result property="createTm" column="CREATE_TM"  />
     <result property="modifyTm" column="MODIFY_TM" />
-  </resultMap-->
+  </resultMap>
 
     <select id="loginByAccountAndPsd" resultType="User">
       SELECT su.`ID` AS id,

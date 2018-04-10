@@ -1,17 +1,23 @@
 package com.sanxia.dove.platform.entity.file;
 
+import com.sanxia.dove.platform.entity.system.User;
+
 /**
  * Created by zy on 2018/3/27.
  */
 public class Blog {
+
+
+    private User user;
     //博客ID
     private long id;
     //作者ID
     private long writerId;
     //标题
     private String title;
-    //内容
+    //内容 二进制用于导入
     private byte[] content;
+
     //发布时间
     private String createTime;
     //最近修改时间
@@ -127,7 +133,13 @@ public class Blog {
 
     public Blog() {
     }
+    public User getUser() {
+        return user;
+    }
 
+    public void setUser(User user) {
+        this.user = user;
+    }
     public Blog(long id, long writerId, String title, byte[] content, String createTime, String lastModiTime, String deleteTime, String isDelete, int agrees, int disagrees, int reviews, String isDraft) {
         this.id = id;
         this.writerId = writerId;

@@ -1,5 +1,7 @@
 body, dl, dt, dd, p, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, select, fieldset, input, button, textarea, blockquote {margin: 0; padding: 0; }
-
+body{
+    min-width:1350px;
+}
 .File-icon{
     color: rgba(3,47,98,0.5);
     width: 10px;
@@ -16,19 +18,36 @@ body, dl, dt, dd, p, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, select, fiel
     height: 100px;
     padding-top: 20px;
 }
+.home_leftnav{
+    margin-top: 30px;
+}
+.container{
+    min-width:1170px;
+}
 .show-table{
     border-bottom: 1px solid #dddddd;
     border-right: 1px solid #dddddd;
     border-left: 1px solid #dddddd;
     margin-bottom: 0px;
 }
-.test-editormd{
-    width: 600px;
-    height: 600px;
-}
-.form-Blog-Writing{
-    width: 1000px;
+
+.home_leftnav{
+    position: fixed;
+    left: 0px;
+    top: 20%;
 }
 .form-Blog-Writing .title{
-    margin: 30px;
+    margin: 24px;
+}
+.main-menu-item{
+    background-color: #eee;
+    border-bottom: 1px solid #4f9fcf;
+    border-right: 1px solid #4f9fcf;
+    border-top: 1px solid #4f9fcf;
+    font-family: "Microsoft YaHei", "微软雅黑";
+    margin-top: -1px;
+    width: 55px;
+}
+.left-nav a:hover,a:focus{
+    text-decoration: none !important;
 }

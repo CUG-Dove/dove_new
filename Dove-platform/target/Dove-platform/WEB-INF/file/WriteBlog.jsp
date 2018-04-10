@@ -11,9 +11,17 @@
 <html lang="en">
 <head>
     <title>写日志</title>
+<<<<<<< HEAD
 
     <%@ include file="/WEB-INF/common/head.jsp"%>
     <%@ include file="/WEB-INF/file/common/head.jsp"%>
+=======
+    <!-- JQuery-->
+    <script src="${ctx}resources/vendors/jquery/dist/jquery.min.js"></script>
+    <%@ include file="common/markdown.jsp" %>
+    <%@ include file="common/head.jsp"%>
+    <link href="${ctx}resources/css/file-blog-common.css" rel="stylesheet">
+>>>>>>> 7ddd36040778bb8b704d64a41d8cff891bf8c6bb
 </head>
 
 <body class="min-width-0">
@@ -41,17 +49,25 @@
     <%@ include file="/WEB-INF/common/top_logined.jsp" %>
     <div class="application-main" role="main">
         <div class="container">
+<<<<<<< HEAD
             <div class="">
 
+=======
+            <div class="pos-left ">
+                <%@ include file="common/left-menu.jsp"%>
+>>>>>>> 7ddd36040778bb8b704d64a41d8cff891bf8c6bb
             </div>
-            <div class="form-Blog-Writing pos-right">
+            <div class="pos-right ">
+                <div class="form-Blog-Writing ">
                 <div class="title"><input class="form-control" type="text" placeholder="请输入标题名称"></div>
                 <div class="test-editormd" id="test-editormd">
                     <textarea style="display:none;" class="editormd-html-textarea" id="editormd"></textarea>
                     <textarea class="editormd-html-textarea" name="text" id="editormdhtml"></textarea>
                     </textarea>
                 </div>
-                <button class="btn-info" onclick="submit_blog()">提交</button>
+                <button class="btn btn-info" onclick="save_blog()">保存草稿</button>
+                <button class="btn btn-info" onclick="submit_blog()">发布博客</button>
+                </div>
             </div>
         </div>
     </div>
@@ -65,7 +81,7 @@
     $(function () {
         testEditor = editormd("test-editormd", {
             width: "95%",
-            height: "80%",
+            height: "600px",
             path: "/resources/vendors/md/lib/",
             imageUpload: true,
             imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
@@ -89,7 +105,6 @@
             }
         );
     }
-
 
 </script>
 </body>
