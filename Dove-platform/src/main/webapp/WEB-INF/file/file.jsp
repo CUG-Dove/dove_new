@@ -15,7 +15,7 @@
     <title>File Info</title>
     <meta charset="utf-8"/>
     <%@ include file="common/head.jsp" %>
-    <%@ include file="common/markdown.jsp" %>
+    <%@ include file="/WEB-INF/common/head.jsp" %>
     <link href="${ctx}resources/css/file-blog-common.css" rel="stylesheet">
 </head>
 <body>

@@ -1,0 +1,572 @@
+
+/**
+    repositories_top
+ */
+.repohead.experiment-repo-nav {
+    padding-bottom: 0;
+    background-color: #fafbfc;
+}
+
+@media (min-width: 1012px){
+    .pagehead {
+        border-bottom: 1px solid #e1e4e8;
+    }
+}
+
+.pagehead {
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.repohead .repohead-details-container {
+    margin-bottom: 20px;
+}
+
+.container {
+    width: 980px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.pagehead ul.pagehead-actions {
+    position: relative;
+    z-index: 31;
+    float: right;
+    margin: 0;
+}
+
+.pagehead-actions>li {
+    float: left;
+    margin: 0 10px 0 0;
+    font-size: 11px;
+    color: #24292e;
+    list-style-type: none;
+}
+
+container .focues {
+    display: none;
+}
+
+container .starred {
+    display: none;
+}
+
+.pagehead-actions .select-menu {
+    position: relative;
+}
+
+.btn {
+    color: #006ec6;
+    background-color: #fff;
+    background-image: linear-gradient(-180deg, #fafbfc 0%, #eff3f6 90%);
+}
+
+.btn {
+    position: relative;
+    display: inline-block;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-repeat: repeat-x;
+    background-position: -1px -1px;
+    background-size: 110% 110%;
+    border: 1px solid rgba(27,31,35,0.2);
+    border-radius: 0.25em;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+
+.btn-sm {
+    padding: 5px 15px;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.btn-with-count {
+    float: left;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+
+
+
+.container-repo{
+    max-width: 1400px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.btn:hover, .btn.hover {
+    background-color: #e6ebf1;
+    background-image: linear-gradient(-180deg, #f0f3f6 0%, #e6ebf1 90%);
+    background-position: -.5em;
+    border-color: rgba(27,31,35,0.35);
+}
+
+.btn:hover {
+    text-decoration: none;
+    background-repeat: repeat-x;
+}
+
+.social-count {
+    float: left;
+    padding: 5px 15px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    color: #24292e;
+    vertical-align: middle;
+    background-color: #fff;
+    border: 1px solid rgba(27,31,35,0.2);
+    border-left: 0;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.starring-container.on .unstarred, .starring-container .starred {
+    display: none;
+}
+
+.starring-container .unstarred, .starring-container.on .starred {
+    display: block;
+}
+
+.repohead h1 {
+    position: relative;
+    float: left;
+    max-width: 635px;
+    padding-left: 18px;
+    font-size: 18px;
+    line-height: 26px;
+    color: #586069;
+}
+.pagehead h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 28px;
+}
+
+.repository-meta {
+    margin: 0 0 20px;
+    clear: both;
+    font-size: 16px;
+    color: #586069;
+}
+.repository-meta .repository-meta-content {
+    display: inline-block;
+}
+
+.mb-1 {
+    margin-bottom: 4px !important;
+}
+.col-11 {
+    width: 91.66667%;
+}
+
+/**
+    repositories right部分
+*/
+
+aside {
+    float: right;
+    width: 300px;
+}
+aside{
+    display: block;
+}
+aside .user_info {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 24px 0 0;
+}
+
+aside .right_box {
+    width: 100%;
+    padding-top: 20px;
+    margin-bottom: 20px;
+}
+aside .host-column, aside .right_box, aside .writings {
+    background-color: #fff;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.05);
+}
+.right_box {
+    width: 100%;
+    background: #fff;
+    -webkit-box-shadow: 0 2px 4px 0 rgba(0,0,0,0.05);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.05);
+    padding: 16px;
+    margin-top: 10px;
+}
+
+aside .inf_bar {
+    margin: 0 0 16px;
+}
+
+aside .inf_bar dt {
+    width: 64px;
+    height: 64px;
+    overflow: visible;
+    position: relative;
+    display: inline-block;
+    margin-left: 24px;
+}
+.container{
+    width: 850px;
+}
+aside .inf_bar dd {
+    padding-left: 8px;
+    vertical-align: top;
+    display: inline-block;
+}
+aside .inf_bar dd h3 {
+    font-size: 14px;
+    color: #4f4f4f;
+    font-weight: 700;
+    line-height: 26px;
+    padding: 3px 0;
+    margin: -4px 0 8px;
+    height: 26px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 181px;
+}
+
+aside .inf_bar dd span .btn-redborder-small {
+    font-size: 14px;
+    color: #006ec6;
+    border-color: #006ec6;
+    padding: 0 5px;
+    background-color: #fff;
+    cursor: pointer;
+    width: 64px;
+    height: 32px;
+    line-height: 30px;
+}
+
+.btn-redborder-small {
+    height: 24px;
+    border-radius: 4px;
+    min-width: 52px;
+    line-height: 22px;
+    font-size: 12px;
+    color: #e41d1d;
+    border: 1px solid #de686d;
+    background: #f3f7f9;
+}
+
+.btn-redborder, .btn-redborder-small {
+    display: inline-block;
+    padding: 0 20px;
+    text-align: center;
+}
+
+aside .inf_number_box {
+    text-align: center;
+    border-bottom: 1px solid #e6e6e6;
+    border-top: 1px solid #e6e6e6;
+    padding-bottom: 8px;
+    padding-top: 16px;
+}
+aside .inf_number_box dl {
+    display: inline-block;
+    width: 21%;
+    text-align: center;
+}
+
+aside .inf_number_box dl dt {
+    font-size: 14px;
+    color: #788087;
+}
+aside .inf_number_box dl dd {
+    color: #4f4f4f;
+    width: 100%;
+    overflow: hidden;
+}
+
+aside .inf_number_box dl dd, aside .inf_number_box dl:nth-child(4) dd a {
+    font-size: 14px;
+    font-weight: 700;
+}
+aside .writings {
+    padding: 20px 20px 0;
+    margin-bottom: 20px;
+}
+
+aside .host-column, aside .right_box, aside .writings {
+    background-color: #fff;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,.05);
+}
+
+aside .public_signal {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+aside .public_signal h3 {
+    font-family: 'Microsoft YaHei',SimHei,Arial,SimSun;
+    font-size: 16px;
+    float: left;
+    color: #333;
+    border-left: 3px solid #e36209;
+    padding-left: 6px;
+    line-height: 16px;
+}
+
+aside .public_signal a.more:link, aside .public_signal a.more:visited {
+    margin-top: -2px;
+    text-decoration: none;
+    color: #4093c6;
+}
+
+aside .public_signal a.more:active, aside .public_signal a.more:focus, aside .public_signal a.more:hover {
+    text-decoration: none;
+    color: #4f4f4f;
+}
+
+aside .public_signal a {
+    float: right;
+    color: #888;
+}
+
+aside ul.inf_list {
+    font-size: 14px;
+    color: #4f4f4f;
+    padding-bottom: 7px;
+}
+
+aside ul.inf_list li a, aside ul.inf_list li a:link, aside ul.inf_list li a:visited {
+    display: inline-block;
+    line-height: 22px;
+    float: left;
+    max-width: 260px;
+    color: #0366d6;
+}
+.article_content, aside ul.inf_list li a {
+    word-break: break-all;
+}
+
+aside ul.inf_list li a:hover {
+    display: block;
+    font-weight: 600;
+    color: #757a7e;
+}
+
+.overall-summary {
+    position: relative;
+    margin-bottom: 10px;
+    border: 1px solid #dfe2e5;
+    border-radius: 3px;
+}
+
+.stats-switcher-viewport {
+    height: 41px;
+    overflow: hidden;
+}
+
+.stats-switcher-viewport .stats-switcher-wrapper {
+    position: relative;
+    top: 0;
+    transition: top 0.25s ease-in-out;
+}
+
+.numbers-summary {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.numbers-summary li {
+    display: table-cell;
+    padding: 0;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.numbers-summary a, .numbers-summary .nolink {
+    display: block;
+    padding: 10px 0;
+    color: #586069;
+    text-decoration: none;
+}
+
+.text-emphasized {
+    color: #24292e;
+    font-weight: 600;
+}
+
+.numbers-summary a:hover{
+    color: #0366d6;
+    text-decoration: none;
+}
+
+.file-navigation.in-mid-page {
+    margin-top: 15px;
+}
+.file-navigation::before {
+    display: table;
+    content: "";
+}
+.file-navigation::after {
+    display: table;
+    clear: both;
+    content: "";
+}
+
+.float-right {
+    float: right !important;
+}
+.get-repo-menu{
+    margin-right: 6px;
+}
+
+.file-navigation .get-repo-menu .btn-sm {
+    width:140px;
+    padding: 5px 12px;
+    font-size: 14px;
+    line-height: 20px;
+}
+.file-navigation .get-repo-menu .btn-primary {
+    color: #fff;
+    background-color: #28a745;
+    background-image: linear-gradient(-180deg, #34d058 0%, #28a745 90%);
+}
+
+.file-navigation .BtnGroup {
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+
+.BtnGroup {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+.BtnGroup::before {
+    display: table;
+    content: "";
+}
+
+.BtnGroup::after {
+    display: table;
+    clear: both;
+    content: "";
+}
+
+.BtnGroup-item {
+    position: relative;
+    float: left;
+    border-right-width: 0;
+    border-radius: 0;
+}
+
+.BtnGroup a:nth-child(3){
+    border-right: 1px solid rgba(27,31,35,0.2);
+}
+
+.reponav-item {
+    float: left;
+    padding: 7px 15px 8px;
+    color: #586069;
+    white-space: nowrap;
+    border: solid transparent;
+    border-width: 3px 1px 1px;
+    border-radius: 3px 3px 0 0;
+}
+
+.reponav-item .Counter {
+    color: #444d56;
+}
+
+.Counter {
+    display: inline-block;
+    padding: 2px 5px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    color: #586069;
+    background-color: rgba(27,31,35,0.08);
+    border-radius: 20px;
+}
+.issues a:focus,.issues a:hover {
+    color: #0366d6;
+    text-decoration: none;
+}
+
+.file-wrap {
+    margin-bottom: 10px;
+    border: 1px solid #dfe2e5;
+    border-top: 0;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+
+table.files {
+    width: 100%;
+    background: #fff;
+    border-radius: 2px;
+}
+
+table.files td {
+    padding: 6px 3px;
+    line-height: 20px;
+    border-top: 1px solid #eaecef;
+}
+
+table.files td.File-icon {
+    width: 17px;
+    padding-right: 2px;
+    padding-left: 10px;
+    color: rgba(3,47,98,0.55);
+}
+
+table.files td.File-name {
+    max-width: 40px;
+}
+
+table.files td.File-brief{
+    max-width: 50px;
+    padding-left: 10px;
+    overflow: hidden;
+    color: #6a737d;
+}
+
+table.files td.File-create-time {
+    width: 40px;
+    padding-right: 10px;
+    color: #6a737d;
+    text-align: right;
+    white-space: nowrap;
+}
+
+table.files td .css-truncate {
+    max-width: 100%;
+}
+.css-truncate.css-truncate-target, .css-truncate .css-truncate-target {
+    display: inline-block;
+    max-width: 125px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: top;
+}
+.files span {
+    font-size: 14px;
+}
+
